@@ -1,0 +1,60 @@
+---
+import MediaSlot from './MediaSlot.astro';
+---
+
+<section class="tattoo-act" id="tattoos" aria-labelledby="tattoo-title" data-act="tattoos">
+  <div class="act-intro tattoo-intro">
+    <div class="act-index">
+      <span>Acto 01 / 03</span>
+      <span>Piel</span>
+    </div>
+
+    <div class="tattoo-stage" data-tattoo-stage>
+      <div class="stage-visual" aria-hidden="true">
+        <span class="skin-field"></span>
+        <svg class="precision-line" viewBox="0 0 900 700" preserveAspectRatio="none">
+          <path data-draw-line d="M-40 560 C 170 530, 150 150, 380 210 S 610 640, 940 110" />
+        </svg>
+        <span class="crosshair crosshair-one"></span>
+        <span class="crosshair crosshair-two"></span>
+        <small>Slot de proceso / media pendiente</small>
+      </div>
+
+      <div class="stage-copy" data-reveal>
+        <p class="eyebrow">Línea · tinta · precisión</p>
+        <h2 id="tattoo-title">Tattoos</h2>
+        <p class="act-claim">El arte de hacerlo propio.</p>
+        <p class="act-description">
+          Tu idea marca el punto de partida. Mora suma escucha, criterio y pequeños
+          ajustes para que siga sintiéndose tuya.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="evidence" aria-labelledby="evidence-title">
+    <div class="evidence-heading" data-reveal>
+      <p class="eyebrow">Archivo provisional</p>
+      <h3 id="evidence-title">Trabajo real,<br /><em>cuando llegue.</em></h3>
+      <p>La composición ya define jerarquía, recorte y ritmo. Estos planos abstractos no representan trabajos de Mora.</p>
+    </div>
+
+    <div class="editorial-grid">
+      <MediaSlot number="01" title="Pieza dominante" detail=" · formato vertical reemplazable" class="slot-dominant" />
+      <MediaSlot number="02" title="Detalle" detail=" · macro / línea / sombreado" class="slot-detail" />
+      <MediaSlot number="03" title="Contexto" detail=" · pieza en cuerpo / proceso" class="slot-context" />
+    </div>
+  </div>
+
+  <div class="act-cta tattoo-cta" data-reveal>
+    <div>
+      <p class="eyebrow">Una idea puede estar lista. O recién empezando.</p>
+      <h3>¿Tenés algo<br />en mente?</h3>
+    </div>
+    <div class="cta-actions">
+      <a class="button button-primary" href="/contacto?servicio=tattoo">Contame tu idea <span aria-hidden="true">↗</span></a>
+      <a class="button button-ghost" href="/tattoos">Ver Tattoos <span aria-hidden="true">→</span></a>
+      <a class="guidance-link" href="/contacto?servicio=tattoo&amp;estado=orientacion">Todavía necesito orientación</a>
+    </div>
+  </div>
+</section>
