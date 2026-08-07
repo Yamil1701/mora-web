@@ -1,0 +1,18 @@
+﻿Reference,Category,Relevance,Key finding,Take,Avoid,URL
+Exat Microsite,Creative case,Very high,Motion as meaning; expressive/calm rhythm; mobile simplification; performance,Use semantic motion and rhythm,Do not copy smooth scroll/tool stack by default,https://tympanus.net/codrops/2026/04/10/the-exat-microsite-pushing-a-typography-showcase-to-new-creative-extremes/
+Pell Mell,Editorial portfolio case,Very high,"Strict underlying system, loose editorial surface, mobile complete, contact designed",Editorial system + designed contact,Avoid ornamental loader by default,https://tympanus.net/codrops/2026/03/27/pell-mell-crafting-a-visual-exploration-platform-with-editorial-rhythm/
+Stefan Vitasovic 2025,Creative dev portfolio,High,Recurring motion hooks; mobile can reduce technology,Use recurring signature motifs,WebGL is not a requirement,https://tympanus.net/codrops/2025/03/05/case-study-stefan-vitasovic-portfolio-2025/
+Pedro Ajo,Editorial portfolio,High,Typography + rigorous system; figure-like organization,"Use captions, numbering, hierarchy",Do not adopt total austere B&W,https://pedroajo.com/
+Buena Suerte,Creative development portfolio,Medium-high,Editorial figures + project index,Use flexible archive language,Do not over-index on developer aesthetic,https://buena-suerte.studio/
+Monolith Studio,Tattoo,Very high for Tattoos,Tattoo as art/culture; editorial focus; booking as product,Serious art direction and contextual consultation,Avoid monumental/gothic identity takeover,https://monolithstudio.com/
+Flatbone Tattoo,Tattoo contrast,Medium,Strong cultural ownership,Study intensity,Avoid skull/fire/punk becoming MORA master brand,https://www.awwwards.com/
+HYPE TATTOO,Tattoo,Medium,Contemporary tattoo web reference,Study variety + responsive treatment,Award is not UX proof,https://www.awwwards.com/
+La Tatuajeria,Tattoo operational,Medium,"Clear service, CTA, gallery, FAQ",Keep operational path obvious,Avoid long form-heavy Home,https://latatuajeria.com/
+Bernice Bakery,Food,High for Pasteleria,Sensory product photography and material-driven motion,Make food feel tactile,Avoid cute/pastel identity drift,https://casamedia.com/projects/bernice/
+Lamanna Bakery,Food,Medium,Bold product invasion; large type,Study physical product as UI,Avoid overall colorful retro excess,https://www.lamannabakery.com/
+New Ground Coffee,Food typographic,Medium,Typography + product,Study composition,Discovery reference only,https://www.siteinspire.com/website/12167-new-ground-coffee
+Postevand,Food/product editorial,Medium,Long scroll + large type + CTA clarity,Study long narrative structure,Do not copy ecommerce specifics,https://postevand.com/
+KOPPEN,Fitness,Medium,Non-neon health/fitness visual language,Use as stereotype counterexample,Do not turn Sofit into luxury skincare,https://www.siteinspire.com/website/13452-koppen
+KAAIAA,Wellness/mobile process,Medium-high,Emotion + structure + mobile product thinking,Study mobile emotional clarity,Avoid wellness-mystic copy,https://www.halo-lab.com/project/kaaiaa
+Thibault Guignand,Creative technical,Medium,GSAP orchestrates multiple media/effects,Study technical orchestration,Avoid complexity for its own sake,https://tympanus.net/codrops/2026/05/06/from-shader-uniforms-to-clip-path-wipes-how-gsap-drives-my-portfolio/
+More Than a Portfolio,Immersive 3D,High concept / low V1 implementation,"Site as a place, scenes rather than cards",Use scene mindset,Avoid full WebGL world unless uniquely justified,https://tympanus.net/codrops/2026/04/28/more-than-a-portfolio-building-a-scroll-driven-3d-world-with-something-to-say/

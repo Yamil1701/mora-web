@@ -1,0 +1,21 @@
+{
+  "name": "mora-web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^7.1.6",
+    "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
