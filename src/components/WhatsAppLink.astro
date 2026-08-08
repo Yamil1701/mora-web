@@ -1,6 +1,10 @@
+---
+import { withBase } from '../utils/withBase';
+---
+
 <a
   class="whatsapp-link"
-  href="/contacto?via=whatsapp"
+  href={withBase('contacto?via=whatsapp')}
   aria-label="Contactar a MORA por WhatsApp"
 >
   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
