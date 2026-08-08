@@ -74,3 +74,13 @@ Desktop aprovecha asimetría, superposición y una transición sticky. Mobile ca
 ## 10. Próximo paso propuesto
 
 Producir un shot test mínimo —un gesto Tattoo, su gesto equivalente de Pastelería y una pieza real de cada área— y sustituir solo esos slots. Con esa prueba se debería cerrar timing, crop, contraste y costo de carga antes de extender el recorrido a Sofit.
+
+## Refinement Pass 01
+
+- **Scroll:** se mantiene el scroll nativo y no se agrega Lenis. Los anchors conservan desplazamiento suave cuando hay motion habilitado y vuelven a ser inmediatos con `prefers-reduced-motion`. Esto evita introducir latencia o interferencias con wheel, trackpad, teclado, Back y navegación.
+- **Magnetismo:** se incorporan solo tres zonas de proximidad —entrada de Tattoos, transición y entrada de Pastelería—. El ajuste se evalúa después de que termina un gesto de wheel o touch, exige baja velocidad y una distancia corta, y usa un umbral todavía menor en mobile. No actúa con teclado, scroll programático ni reduced motion.
+- **Respiración mobile:** se amplía de forma selectiva el espacio entre visual principal, copy, evidencia, CTA y transición. También se da más altura a los visuales protagonistas para que la siguiente escena no compita mientras ocupan el centro del viewport.
+- **Motion mobile recuperado:** el trazo de Tattoos se dibuja una sola vez con recorrido y duración breves. La transición Piel → Sabor usa una apertura corta de máscaras, avance de la nueva materia y extensión del gesto compartido, sin sticky prolongado.
+- **Entrada de MORA:** las cuatro letras comparten easing y una ventana temporal compacta, pero llegan con gestos distintos. La R incorpora una rotación editorial más visible; en mobile la amplitud se mantiene contenida y con reduced motion la palabra aparece en su estado final.
+- **Entrada inicial de materias:** piel, movimiento y sabor entran de forma asíncrona y solapada con las letras mediante combinaciones distintas de desplazamiento, escala, rotación y máscara. El timeline termina en el mismo estado CSS que consumen los ScrollTriggers de parallax.
+- **Tradeoffs:** se priorizó fluidez percibida sin amortiguar todo el documento. El magnetismo es deliberadamente conservador y puede no activarse en un scroll rápido; esa ausencia es preferible a secuestrar el gesto del usuario. Los reveals globales excluyen ahora los copies con animación específica para evitar transforms duplicados al cambiar de breakpoint.
