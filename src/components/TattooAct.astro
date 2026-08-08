@@ -1,5 +1,6 @@
 ---
 import MediaSlot from './MediaSlot.astro';
+import { withBase } from '../utils/withBase';
 ---
 
 <section class="tattoo-act" id="tattoos" aria-labelledby="tattoo-title" data-act="tattoos">
@@ -52,9 +53,9 @@ import MediaSlot from './MediaSlot.astro';
       <h3>¿Tenés algo<br />en mente?</h3>
     </div>
     <div class="cta-actions">
-      <a class="button button-primary" href="/contacto?servicio=tattoo">Contame tu idea <span aria-hidden="true">↗</span></a>
-      <a class="button button-ghost" href="/tattoos">Ver Tattoos <span aria-hidden="true">→</span></a>
-      <a class="guidance-link" href="/contacto?servicio=tattoo&amp;estado=orientacion">Todavía necesito orientación</a>
+      <a class="button button-primary" href={withBase('contacto?servicio=tattoo')}>Contame tu idea <span aria-hidden="true">↗</span></a>
+      <a class="button button-ghost" href={withBase('tattoos')}>Ver Tattoos <span aria-hidden="true">→</span></a>
+      <a class="guidance-link" href={withBase('contacto?servicio=tattoo&estado=orientacion')}>Todavía necesito orientación</a>
     </div>
   </div>
 </section>
