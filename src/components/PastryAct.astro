@@ -1,5 +1,6 @@
 ---
 import MediaSlot from './MediaSlot.astro';
+import { withBase } from '../utils/withBase';
 ---
 
 <section class="pastry-act" id="pasteleria" aria-labelledby="pastry-title" data-act="pasteleria">
@@ -47,13 +48,13 @@ import MediaSlot from './MediaSlot.astro';
       <h3>¿Qué tenés<br />en mente?</h3>
     </div>
     <div class="cta-actions">
-      <a class="button button-primary" href="/contacto?servicio=pasteleria">Contame tu idea <span aria-hidden="true">↗</span></a>
-      <a class="button button-ghost" href="/pasteleria">Ver Pastelería <span aria-hidden="true">→</span></a>
+      <a class="button button-primary" href={withBase('contacto?servicio=pasteleria')}>Contame tu idea <span aria-hidden="true">↗</span></a>
+      <a class="button button-ghost" href={withBase('pasteleria')}>Ver Pastelería <span aria-hidden="true">→</span></a>
     </div>
   </div>
 
   <div class="next-act" aria-label="Próximo acto: Sofit">
     <span>Próximo acto</span>
-    <a href="/sofit">03 / Movimiento · Sofit <span aria-hidden="true">→</span></a>
+    <a href={withBase('sofit')}>03 / Movimiento · Sofit <span aria-hidden="true">→</span></a>
   </div>
 </section>
