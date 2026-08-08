@@ -1,0 +1,22 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  detail: string;
+  class?: string;
+}
+
+const { number, title, detail, class: className = '' } = Astro.props;
+---
+
+<figure class:list={['media-slot', className]} data-reveal>
+  <div class="slot-surface" aria-hidden="true">
+    <span class="slot-orbit"></span>
+    <span class="slot-line slot-line-a"></span>
+    <span class="slot-line slot-line-b"></span>
+  </div>
+  <figcaption>
+    <span>{number}</span>
+    <p><strong>{title}</strong>{detail}</p>
+  </figcaption>
+</figure>

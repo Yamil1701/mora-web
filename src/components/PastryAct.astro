@@ -1,0 +1,59 @@
+---
+import MediaSlot from './MediaSlot.astro';
+---
+
+<section class="pastry-act" id="pasteleria" aria-labelledby="pastry-title" data-act="pasteleria">
+  <div class="pastry-intro" data-magnet>
+    <div class="act-index">
+      <span>Acto 02 / 03</span>
+      <span>Sabores</span>
+    </div>
+
+    <div class="pastry-composition">
+      <div class="pastry-visual" aria-hidden="true" data-pastry-visual>
+        <div class="layer layer-one"></div>
+        <div class="layer layer-two"></div>
+        <div class="layer layer-three"></div>
+        <span class="pastry-cut"></span>
+        <small>Slot de producto / media pendiente</small>
+      </div>
+
+      <div class="pastry-copy" data-reveal>
+        <p class="eyebrow">Capa · corte · textura</p>
+        <h2 id="pastry-title">Pastelería</h2>
+        <p class="act-claim">El sabor también<br />se comparte.</p>
+        <p class="act-description">
+          Algo conocido o una idea fuera de catálogo: el encargo empieza en la conversación.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pastry-evidence" aria-labelledby="pastry-evidence-title">
+    <div class="pastry-evidence-heading" data-reveal>
+      <p class="eyebrow">Muestra provisional</p>
+      <h3 id="pastry-evidence-title">Capas, detalle<br />y cercanía.</h3>
+      <p>Slots abstractos listos para minitorta, corte y proceso reales.</p>
+    </div>
+    <div class="pastry-slots">
+      <MediaSlot number="01" title="Minitorta" detail=" · pieza principal" class="pastry-slot-main" />
+      <MediaSlot number="02" title="Corte" detail=" · relleno / textura" class="pastry-slot-cut" />
+    </div>
+  </div>
+
+  <div class="act-cta pastry-cta" data-reveal>
+    <div>
+      <p class="eyebrow">Por encargo / en conversación</p>
+      <h3>¿Qué tenés<br />en mente?</h3>
+    </div>
+    <div class="cta-actions">
+      <a class="button button-primary" href="/contacto?servicio=pasteleria">Contame tu idea <span aria-hidden="true">↗</span></a>
+      <a class="button button-ghost" href="/pasteleria">Ver Pastelería <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <div class="next-act" aria-label="Próximo acto: Sofit">
+    <span>Próximo acto</span>
+    <a href="/sofit">03 / Movimiento · Sofit <span aria-hidden="true">→</span></a>
+  </div>
+</section>

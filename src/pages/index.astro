@@ -1,11 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import TattooAct from '../components/TattooAct.astro';
+import MatterTransition from '../components/MatterTransition.astro';
+import PastryAct from '../components/PastryAct.astro';
+import WhatsAppLink from '../components/WhatsAppLink.astro';
 ---
 
-<BaseLayout title="MORA">
-  <main data-baseline-page="home">
-    <h1>MORA</h1>
-    <p>Expresión en todas sus formas.</p>
-    <p>Baseline técnico previo al Prototype 01.</p>
+<BaseLayout
+  title="MORA — Expresión en todas sus formas"
+  description="MORA: Tattoos, Pastelería y Sofit. Expresión en la piel, en los sabores y en el movimiento."
+>
+  <Header />
+  <main id="contenido">
+    <Hero />
+    <TattooAct />
+    <MatterTransition />
+    <PastryAct />
   </main>
+  <WhatsAppLink />
+
+  <script>
+    import { initHomeMotion } from '../scripts/home-motion';
+    initHomeMotion();
+  </script>
 </BaseLayout>
