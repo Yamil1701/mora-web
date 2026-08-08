@@ -102,7 +102,6 @@ export function initHomeMotion() {
   let cleanupMagnet: () => void = () => undefined;
 
   mm.add('(prefers-reduced-motion: no-preference)', () => {
-    const compact = window.matchMedia('(max-width: 767px)').matches;
     const matterScrolls: gsap.core.Tween[] = [];
     const intro = gsap.timeline({
       defaults: { ease: 'power3.out' },
@@ -121,16 +120,12 @@ export function initHomeMotion() {
         ScrollTrigger.refresh();
       },
     });
-    const letters = gsap.utils.toArray<HTMLElement>('.hero-word span');
 
     intro
-      .from(letters[0], { yPercent: compact ? 48 : 72, duration: compact ? 0.72 : 0.94, ease: 'power2.out' }, 0.04)
-      .from('[data-hero-matter="skin"]', { xPercent: compact ? 28 : 42, yPercent: compact ? -18 : -28, rotate: compact ? 13 : 18, scale: 0.92, opacity: 0, duration: 1.08 }, 0.08)
-      .from(letters[1], { scale: compact ? 0.86 : 0.78, clipPath: compact ? 'inset(28% 8% 28% 8%)' : 'inset(36% 10% 36% 10%)', opacity: 0, duration: compact ? 0.66 : 0.84, ease: 'power2.out' }, compact ? 0.46 : 0.6)
-      .from('[data-hero-matter="motion"]', { xPercent: compact ? -44 : -76, rotate: compact ? -8 : -13, scaleY: 0.72, opacity: 0, duration: 0.92 }, 0.44)
-      .from(letters[2], { yPercent: compact ? 36 : 52, rotate: compact ? -10 : -18, transformOrigin: '52% 76%', duration: compact ? 0.82 : 0.96, ease: 'power3.out' }, compact ? 0.82 : 1.02)
-      .from('[data-hero-matter="flavour"]', { xPercent: compact ? 32 : 48, yPercent: compact ? 22 : 34, rotate: compact ? -11 : -16, scale: 0.9, opacity: 0, duration: 1.02 }, 0.84)
-      .from(letters[3], { xPercent: compact ? 26 : 40, yPercent: compact ? -5 : -7, duration: 0.5, ease: 'power2.out' }, compact ? 1.14 : 1.48)
+      .from('.hero-word span', { yPercent: 105, rotate: 3, duration: 1.15, stagger: 0.08 }, 0.04)
+      .from('[data-hero-matter="skin"]', { xPercent: 42, yPercent: -28, rotate: 18, scale: 0.92, opacity: 0, duration: 1.08 }, 0.08)
+      .from('[data-hero-matter="motion"]', { xPercent: -76, rotate: -13, scaleY: 0.72, opacity: 0, duration: 0.92 }, 0.44)
+      .from('[data-hero-matter="flavour"]', { xPercent: 48, yPercent: 34, rotate: -16, scale: 0.9, opacity: 0, duration: 1.02 }, 0.84)
       .from('.hero-statement > *', { opacity: 0, y: 15, duration: 0.68, stagger: 0.07 }, 0.42)
       .from('.hero-acts a', { opacity: 0, y: 12, duration: 0.62, stagger: 0.055 }, 0.56)
       .from('.hero-kicker, .scroll-cue', { opacity: 0, duration: 0.55, stagger: 0.06 }, 0.64);
