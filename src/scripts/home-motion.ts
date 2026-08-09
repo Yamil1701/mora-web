@@ -252,11 +252,23 @@ export function initHomeMotion() {
   });
 
   const cleanup = () => {
+    mobileMenuLinks.forEach((link) => link.removeEventListener('click', closeMobileMenu));
+    document.removeEventListener('keydown', closeMobileMenuWithEscape);
     cleanupMagnet();
     mm.revert();
   };
-  document.querySelectorAll<HTMLAnchorElement>('.mobile-menu nav a').forEach((link) => {
-    link.addEventListener('click', () => link.closest('details')?.removeAttribute('open'));
-  });
+
+  const mobileMenu = document.querySelector<HTMLDetailsElement>('.mobile-menu');
+  const mobileMenuSummary = mobileMenu?.querySelector<HTMLElement>('summary');
+  const mobileMenuLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.mobile-menu nav a'));
+  const closeMobileMenu = () => mobileMenu?.removeAttribute('open');
+  const closeMobileMenuWithEscape = (event: KeyboardEvent) => {
+    if (event.key !== 'Escape' || !mobileMenu?.open) return;
+    closeMobileMenu();
+    mobileMenuSummary?.focus();
+  };
+
+  mobileMenuLinks.forEach((link) => link.addEventListener('click', closeMobileMenu));
+  document.addEventListener('keydown', closeMobileMenuWithEscape);
   window.addEventListener('pagehide', cleanup, { once: true });
 }
