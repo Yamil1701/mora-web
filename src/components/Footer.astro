@@ -1,0 +1,24 @@
+---
+import { withBase } from '../utils/withBase';
+import BrandWordmark from './BrandWordmark.astro';
+---
+
+<footer class="site-footer">
+  <a class="footer-brand" href="#inicio" aria-label="MORA, volver al inicio"><BrandWordmark /></a>
+
+  <nav aria-label="Navegación del pie">
+    <a href="#tattoos">Tattoos</a>
+    <a href="#pasteleria">Pastelería</a>
+    <a href="#sofit">Sofit</a>
+    <a href={withBase('sobre-mora')}>Sobre Mora</a>
+    <a href={withBase('contacto')}>Contacto</a>
+  </nav>
+
+  <div class="footer-social">
+    <a href={withBase('contacto?via=whatsapp')}>WhatsApp</a>
+    <a href={withBase('contacto?via=instagram')}>Instagram</a>
+  </div>
+
+  <p>Salta · Argentina</p>
+  <p>© 2026 MORA</p>
+</footer>

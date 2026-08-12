@@ -1,11 +1,12 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { createHomeScrollController, createNarrativeMagnet } from './home-scroll';
+import { initRetractableHeader } from './home-header';
+import { addSofitMotion } from './sofit-motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const isBrowser = typeof window !== 'undefined';
-
-type InputMode = 'keyboard' | 'touch' | 'wheel' | null;
 
 function prepareLine(path: SVGPathElement) {
   const length = path.getTotalLength();
@@ -13,93 +14,15 @@ function prepareLine(path: SVGPathElement) {
   return length;
 }
 
-function createNarrativeMagnet() {
-  const targets = gsap.utils.toArray<HTMLElement>('[data-magnet]');
-  if (!targets.length) return () => undefined;
-
-  let inputMode: InputMode = null;
-  let idleTimer = 0;
-  let releaseTimer = 0;
-  let lastY = window.scrollY;
-  let lastTime = performance.now();
-  let velocity = 0;
-  let settling = false;
-
-  const markInput = (mode: InputMode) => {
-    inputMode = mode;
-    window.clearTimeout(releaseTimer);
-    releaseTimer = window.setTimeout(() => {
-      inputMode = null;
-    }, 700);
-  };
-
-  const settleNearComposition = () => {
-    if (settling || (inputMode !== 'wheel' && inputMode !== 'touch')) return;
-
-    const mobile = window.matchMedia('(max-width: 767px)').matches;
-    const threshold = mobile ? 22 : Math.min(78, window.innerHeight * 0.09);
-    const maxVelocity = mobile ? 0.34 : 0.58;
-    if (velocity > maxVelocity) return;
-
-    const scrollPadding = mobile ? 68 : 76;
-    let closest: { element: HTMLElement; distance: number } | null = null;
-
-    for (const element of targets) {
-      const distance = element.getBoundingClientRect().top - scrollPadding;
-      if (Math.abs(distance) > threshold) continue;
-      if (!closest || Math.abs(distance) < Math.abs(closest.distance)) {
-        closest = { element, distance };
-      }
-    }
-
-    if (!closest || Math.abs(closest.distance) < 3) return;
-    const destination = Math.max(0, window.scrollY + closest.distance);
-    settling = true;
-    inputMode = null;
-    window.scrollTo({ top: destination, behavior: 'smooth' });
-    releaseTimer = window.setTimeout(() => {
-      settling = false;
-    }, 520);
-  };
-
-  const onScroll = () => {
-    const now = performance.now();
-    const elapsed = Math.max(16, now - lastTime);
-    const instantVelocity = Math.abs(window.scrollY - lastY) / elapsed;
-    velocity = velocity * 0.68 + instantVelocity * 0.32;
-    lastY = window.scrollY;
-    lastTime = now;
-
-    window.clearTimeout(idleTimer);
-    idleTimer = window.setTimeout(settleNearComposition, inputMode === 'touch' ? 240 : 185);
-  };
-
-  const onWheel = () => markInput('wheel');
-  const onTouch = () => markInput('touch');
-  const onKeydown = () => markInput('keyboard');
-
-  window.addEventListener('wheel', onWheel, { passive: true });
-  window.addEventListener('touchstart', onTouch, { passive: true });
-  window.addEventListener('touchmove', onTouch, { passive: true });
-  window.addEventListener('keydown', onKeydown);
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  return () => {
-    window.clearTimeout(idleTimer);
-    window.clearTimeout(releaseTimer);
-    window.removeEventListener('wheel', onWheel);
-    window.removeEventListener('touchstart', onTouch);
-    window.removeEventListener('touchmove', onTouch);
-    window.removeEventListener('keydown', onKeydown);
-    window.removeEventListener('scroll', onScroll);
-  };
-}
-
 export function initHomeMotion() {
   if (!isBrowser) return;
 
   const mm = gsap.matchMedia();
+  const scrollController = createHomeScrollController();
+  const cleanupHeader = initRetractableHeader();
   let cleanupMagnet: () => void = () => undefined;
+
+  addSofitMotion(mm);
 
   mm.add('(prefers-reduced-motion: no-preference)', () => {
     const matterScrolls: gsap.core.Tween[] = [];
@@ -130,7 +53,7 @@ export function initHomeMotion() {
       .from('.hero-acts a', { opacity: 0, y: 12, duration: 0.62, stagger: 0.055 }, 0.56)
       .from('.hero-kicker, .scroll-cue', { opacity: 0, duration: 0.55, stagger: 0.06 }, 0.64);
 
-    gsap.utils.toArray<HTMLElement>('[data-reveal]:not(.stage-copy):not(.pastry-copy)').forEach((element) => {
+    gsap.utils.toArray<HTMLElement>('[data-reveal]:not(.stage-copy):not(.pastry-copy):not(.resolution-copy)').forEach((element) => {
       gsap.from(element, {
         opacity: 0,
         y: 54,
@@ -140,7 +63,7 @@ export function initHomeMotion() {
       });
     });
 
-    cleanupMagnet = createNarrativeMagnet();
+    cleanupMagnet = createNarrativeMagnet(scrollController);
 
     return () => {
       cleanupMagnet();
@@ -255,6 +178,8 @@ export function initHomeMotion() {
     mobileMenuLinks.forEach((link) => link.removeEventListener('click', closeMobileMenu));
     document.removeEventListener('keydown', closeMobileMenuWithEscape);
     cleanupMagnet();
+    cleanupHeader();
+    scrollController.destroy();
     mm.revert();
   };
 
