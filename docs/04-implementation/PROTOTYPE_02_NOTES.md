@@ -28,11 +28,21 @@ En touch, mobile y reduced motion se conserva scroll nativo. Lenis usa un único
 
 El controlador reacciona a cambios del media query, elimina listeners/ticker y destruye Lenis durante cleanup.
 
+## Header y firma de marca
+
+El header completo permanece visible al inicio, se retrae después de un desplazamiento descendente sostenido y reaparece al subir. Cuando está retraído conserva una pestaña editorial `MORA. / MENÚ`; activarla muestra la navegación y, en mobile, abre el menú vertical existente.
+
+El header no se retrae con el menú abierto ni mientras contiene el foco. La pestaña transfiere el foco a la navegación y todos sus listeners se eliminan durante cleanup.
+
+Header, firma personal y footer comparten `BrandWordmark.astro`. El punto fucsia no es un carácter tipográfico: es un cuadrado CSS proporcional al tamaño del wordmark, por lo que conserva forma y alineación en todos los contextos.
+
 ## Motion de Sofit
 
 `sofit-motion.ts` contiene solamente la coreografía nueva. Desktop usa scrub moderado para comprimir capas, dibujar las trayectorias y expandir la salida. Mobile usa secuencias breves one-shot, sin pin prolongado ni scroll suavizado.
 
 La intensidad máxima ocurre en la liberación y Sofit. Desde el remate hacia MORA, contacto y footer disminuyen cantidad, amplitud y frecuencia de movimiento.
+
+Sofit mantiene la paleta madre rosa/bordó de MORA. Su carácter propio se construye mediante trayectorias, tensión, ritmo y espacio negativo, no mediante una desviación azul o una paleta independiente.
 
 Reduced motion conserva la composición final, el contenido, las trayectorias estáticas y todos los CTA; desactiva scrub, Lenis y magnets.
 

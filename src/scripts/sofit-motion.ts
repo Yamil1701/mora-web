@@ -35,7 +35,7 @@ export function addSofitMotion(mm: gsap.MatchMedia) {
       .to('.compression-axis', { scaleY: .1, opacity: .2, ease: 'power2.in' }, .48)
       .to('.compression-field', { scale: 1.7, opacity: 0, ease: 'power3.out' }, .63)
       .to('.compression-copy span:nth-child(2)', { opacity: .2 }, .64)
-      .to('.compression-copy span:nth-child(3)', { color: '#a3b7bf' }, .66)
+      .to('.compression-copy span:nth-child(3)', { color: '#e3a0b9' }, .66)
       .to(releasePath, { strokeDashoffset: 0, ease: 'power2.out' }, .6)
       .fromTo('.transition-destination', { opacity: 0, y: 24 }, { opacity: 1, y: 0, ease: 'power2.out' }, .76);
 

@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createHomeScrollController, createNarrativeMagnet } from './home-scroll';
+import { initRetractableHeader } from './home-header';
 import { addSofitMotion } from './sofit-motion';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,6 +19,7 @@ export function initHomeMotion() {
 
   const mm = gsap.matchMedia();
   const scrollController = createHomeScrollController();
+  const cleanupHeader = initRetractableHeader();
   let cleanupMagnet: () => void = () => undefined;
 
   addSofitMotion(mm);
@@ -176,6 +178,7 @@ export function initHomeMotion() {
     mobileMenuLinks.forEach((link) => link.removeEventListener('click', closeMobileMenu));
     document.removeEventListener('keydown', closeMobileMenuWithEscape);
     cleanupMagnet();
+    cleanupHeader();
     scrollController.destroy();
     mm.revert();
   };

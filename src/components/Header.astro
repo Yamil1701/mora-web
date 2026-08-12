@@ -1,9 +1,10 @@
 ---
 import { withBase } from '../utils/withBase';
+import BrandWordmark from './BrandWordmark.astro';
 ---
 
-<header class="site-header" data-header>
-  <a class="brand" href="#inicio" aria-label="MORA, volver al inicio">MORA<span>.</span></a>
+<header class="site-header" id="site-navigation" data-header>
+  <a class="brand" href="#inicio" aria-label="MORA, volver al inicio"><BrandWordmark /></a>
 
   <nav class="desktop-nav" aria-label="Navegación principal">
     <a href="#tattoos">Tattoos</a>
@@ -24,3 +25,17 @@ import { withBase } from '../utils/withBase';
     </nav>
   </details>
 </header>
+
+<button
+  class="header-dock"
+  type="button"
+  aria-label="Mostrar navegación"
+  aria-controls="site-navigation"
+  aria-expanded="false"
+  aria-hidden="true"
+  tabindex="-1"
+  data-header-dock
+>
+  <BrandWordmark />
+  <span class="header-dock-label">Menú</span>
+</button>

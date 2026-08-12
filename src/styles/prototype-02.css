@@ -1,8 +1,9 @@
 /* Prototype 02 — continuation after the approved Pastelería act. */
 :root {
-  --mineral: #71828a;
-  --mineral-soft: #415159;
-  --sofit-line: rgba(163, 183, 191, .54);
+  --sofit-accent: #c45b84;
+  --sofit-accent-soft: #e3a0b9;
+  --sofit-accent-deep: #702b45;
+  --sofit-line: rgba(226, 128, 164, .58);
 }
 
 html.lenis,
@@ -37,7 +38,7 @@ html.lenis body { height: auto; }
   overflow: hidden;
   background:
     radial-gradient(circle at 46% 48%, rgba(175, 72, 104, .14), transparent 35%),
-    linear-gradient(180deg, #171312, #141416 68%, #111214);
+    linear-gradient(180deg, #171312, #181114 68%, #120f11);
 }
 
 .compression-copy {
@@ -134,7 +135,7 @@ html.lenis body { height: auto; }
   text-transform: uppercase;
 }
 .transition-destination span {
-  color: var(--mineral);
+  color: var(--sofit-accent);
   font-family: var(--body);
   font-size: .6rem;
   letter-spacing: .14em;
@@ -145,15 +146,15 @@ html.lenis body { height: auto; }
   position: relative;
   overflow: clip;
   background:
-    radial-gradient(circle at 78% 9%, rgba(113, 130, 138, .12), transparent 26%),
-    linear-gradient(180deg, #111214 0, #121315 58%, #11100f 100%);
+    radial-gradient(circle at 78% 9%, rgba(216, 23, 103, .13), transparent 27%),
+    linear-gradient(180deg, #120f11 0, #181114 58%, #11100f 100%);
 }
 .sofit-intro,
 .sofit-moment,
 .sofit-resolution { padding-inline: var(--page-pad); }
 .sofit-intro { padding-top: clamp(7rem, 12vw, 12rem); scroll-margin-top: 4.75rem; }
-.sofit-index { border-color: rgba(163, 183, 191, .2); }
-.sofit-index span:first-child { color: var(--mineral); }
+.sofit-index { border-color: rgba(226, 128, 164, .22); }
+.sofit-index span:first-child { color: var(--sofit-accent); }
 
 .sofit-opening {
   position: relative;
@@ -184,7 +185,7 @@ html.lenis body { height: auto; }
   stroke-width: 1.3;
   vector-effect: non-scaling-stroke;
 }
-.sofit-trajectory circle { fill: var(--ink); stroke: var(--mineral); stroke-width: 1.2; }
+.sofit-trajectory circle { fill: var(--ink); stroke: var(--sofit-accent); stroke-width: 1.2; }
 .trajectory-opening { inset: 0; opacity: .82; }
 .trajectory-marks {
   position: absolute;
@@ -193,7 +194,7 @@ html.lenis body { height: auto; }
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: rgba(184, 198, 203, .58);
+  color: rgba(232, 171, 193, .62);
   font-size: .58rem;
   font-weight: 700;
   letter-spacing: .16em;
@@ -207,7 +208,7 @@ html.lenis body { height: auto; }
   min-height: 115vh;
   align-items: center;
   gap: clamp(3rem, 8vw, 9rem);
-  border-top: 1px solid rgba(163, 183, 191, .12);
+  border-top: 1px solid rgba(226, 128, 164, .14);
 }
 .sofit-moment-one { grid-template-columns: minmax(20rem, .75fr) minmax(0, 1.25fr); }
 .sofit-body-copy { position: relative; z-index: 4; max-width: 35rem; }
@@ -221,14 +222,14 @@ html.lenis body { height: auto; }
   text-transform: uppercase;
 }
 .sofit-explanation { max-width: 29rem; margin-top: 2.4rem; color: #c1c0bd; font-size: clamp(1rem, 1.35vw, 1.3rem); line-height: 1.55; }
-.sofit-support { margin-top: 3rem; padding-left: 1.2rem; border-left: 1px solid var(--mineral); color: #919da2; font-size: .75rem; font-weight: 700; letter-spacing: .09em; line-height: 1.5; text-transform: uppercase; }
+.sofit-support { margin-top: 3rem; padding-left: 1.2rem; border-left: 1px solid var(--sofit-accent); color: #bd8fa0; font-size: .75rem; font-weight: 700; letter-spacing: .09em; line-height: 1.5; text-transform: uppercase; }
 
 .sofit-slot-main { height: min(74vh, 48rem); }
-.sofit-slot-main .slot-surface { border-color: rgba(163, 183, 191, .2); background: #151719; }
+.sofit-slot-main .slot-surface { border-color: rgba(226, 128, 164, .22); background: #181315; }
 .sofit-slot-main .slot-surface::before {
   background:
-    linear-gradient(118deg, transparent 0 35%, rgba(113, 130, 138, .24) 35.4% 52%, transparent 52.4%),
-    radial-gradient(ellipse at 60% 46%, #38444a 0 14%, #1d2226 15% 31%, #141618 32% 70%);
+    linear-gradient(118deg, transparent 0 35%, rgba(196, 91, 132, .28) 35.4% 52%, transparent 52.4%),
+    radial-gradient(ellipse at 60% 46%, #5a3040 0 14%, #2c1c23 15% 31%, #171214 32% 70%);
 }
 .sofit-slot-main .slot-orbit { top: 17%; left: 47%; width: 34%; border-radius: 46% 54% 36% 64%; }
 .trajectory-body { z-index: 3; right: -4%; bottom: 8%; width: 62%; height: 58%; }
@@ -253,13 +254,13 @@ html.lenis body { height: auto; }
 .sofit-slot-detail { height: 38rem; }
 .sofit-slot-companion { height: 27rem; margin-bottom: -5rem; }
 .sofit-slot-detail .slot-surface::before {
-  background: repeating-linear-gradient(124deg, #141719 0 12%, #263137 12.5% 19%, #151719 19.5% 32%);
+  background: repeating-linear-gradient(124deg, #171214 0 12%, #432433 12.5% 19%, #191316 19.5% 32%);
 }
 .sofit-slot-companion .slot-surface::before {
-  background: linear-gradient(145deg, #17191b 0 46%, #4a575d 46.5% 52%, #1b1e20 52.5%);
+  background: linear-gradient(145deg, #191316 0 46%, #7d3a56 46.5% 52%, #1d1518 52.5%);
 }
 .sofit-slot-detail .slot-surface,
-.sofit-slot-companion .slot-surface { border-color: rgba(163, 183, 191, .18); }
+.sofit-slot-companion .slot-surface { border-color: rgba(226, 128, 164, .2); }
 .companion-note {
   position: absolute;
   right: var(--page-pad);
@@ -267,7 +268,7 @@ html.lenis body { height: auto; }
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: rgba(184, 198, 203, .55);
+  color: rgba(232, 171, 193, .58);
   font-size: .58rem;
   font-weight: 700;
   letter-spacing: .14em;
@@ -289,7 +290,7 @@ html.lenis body { height: auto; }
   width: 64vw;
   height: 1px;
   transform-origin: left center;
-  background: linear-gradient(90deg, rgba(113, 130, 138, .62), transparent);
+  background: linear-gradient(90deg, rgba(226, 128, 164, .66), transparent);
 }
 .resolution-paths span:nth-child(1) { transform: rotate(-18deg); }
 .resolution-paths span:nth-child(2) { transform: rotate(3deg); opacity: .65; }
@@ -305,8 +306,8 @@ html.lenis body { height: auto; }
 }
 .resolution-copy em { color: transparent; font-family: var(--serif); font-weight: 400; -webkit-text-stroke: 1px rgba(242, 238, 233, .52); text-transform: none; }
 .resolution-copy .cta-actions { width: min(100%, 31rem); margin-top: 5rem; margin-left: auto; }
-.sofit-resolution .button-primary { border-color: var(--mineral-soft); background: var(--mineral-soft); }
-.sofit-resolution .button-primary:hover { background: #586b74; }
+.sofit-resolution .button-primary { border-color: var(--sofit-accent-deep); background: var(--sofit-accent-deep); }
+.sofit-resolution .button-primary:hover { background: #8b3858; }
 
 /* Energy falls away: first the personal signature, then the decision. */
 .mora-signature {
@@ -319,7 +320,7 @@ html.lenis body { height: auto; }
   padding: clamp(12rem, 20vw, 22rem) var(--page-pad) clamp(10rem, 16vw, 17rem);
   background: #11100f;
 }
-.mora-signature-rule { position: absolute; top: 0; left: 50%; width: 1px; height: 10rem; background: linear-gradient(rgba(113, 130, 138, .45), transparent); }
+.mora-signature-rule { position: absolute; top: 0; left: 50%; width: 1px; height: 10rem; background: linear-gradient(rgba(216, 23, 103, .42), transparent); }
 .mora-signature-copy { max-width: 57rem; }
 .mora-signature h2 {
   margin: 1rem 0 3rem;
@@ -472,7 +473,7 @@ html.lenis body { height: auto; }
 }
 
 @media (prefers-contrast: more) {
-  :root { --mineral: #b3c1c7; --sofit-line: rgba(211, 224, 229, .82); }
+  :root { --sofit-accent: #f1b2c9; --sofit-line: rgba(255, 194, 217, .88); }
   .sofit-slot-main .slot-surface,
   .sofit-slot-detail .slot-surface,
   .sofit-slot-companion .slot-surface { border-color: rgba(255, 255, 255, .5); }
