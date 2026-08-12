@@ -4,16 +4,51 @@ interface Props {
   title: string;
   detail: string;
   class?: string;
+  type?: 'image' | 'video';
+  src?: string;
+  mobileSrc?: string;
+  poster?: string;
+  alt?: string;
+  decorative?: boolean;
+  objectPosition?: string;
+  loading?: 'eager' | 'lazy';
 }
 
-const { number, title, detail, class: className = '' } = Astro.props;
+const {
+  number,
+  title,
+  detail,
+  class: className = '',
+  type = 'image',
+  src,
+  mobileSrc,
+  poster,
+  alt = '',
+  decorative = false,
+  objectPosition = '50% 50%',
+  loading = 'lazy',
+} = Astro.props;
 ---
 
 <figure class:list={['media-slot', className]} data-reveal>
-  <div class="slot-surface" aria-hidden="true">
-    <span class="slot-orbit"></span>
-    <span class="slot-line slot-line-a"></span>
-    <span class="slot-line slot-line-b"></span>
+  <div class:list={['slot-surface', { 'has-media': Boolean(src) }]} style={`--media-position: ${objectPosition}`} aria-hidden={!src ? 'true' : undefined}>
+    {src && type === 'video' ? (
+      <video autoplay muted loop playsinline preload={loading === 'eager' ? 'auto' : 'metadata'} poster={poster} aria-hidden={decorative ? 'true' : undefined} aria-label={!decorative ? alt : undefined}>
+        {mobileSrc && <source media="(max-width: 767px)" src={mobileSrc} />}
+        <source src={src} />
+      </video>
+    ) : src ? (
+      <picture>
+        {mobileSrc && <source media="(max-width: 767px)" srcset={mobileSrc} />}
+        <img src={src} alt={decorative ? '' : alt} loading={loading} decoding="async" />
+      </picture>
+    ) : (
+      <>
+        <span class="slot-orbit"></span>
+        <span class="slot-line slot-line-a"></span>
+        <span class="slot-line slot-line-b"></span>
+      </>
+    )}
   </div>
   <figcaption>
     <span>{number}</span>

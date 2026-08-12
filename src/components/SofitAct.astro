@@ -1,0 +1,94 @@
+---
+import MediaSlot from './MediaSlot.astro';
+import { withBase } from '../utils/withBase';
+---
+
+<section class="sofit-act" id="sofit" aria-labelledby="sofit-title" data-act="sofit">
+  <div class="sofit-intro" data-sofit-intro data-magnet>
+    <div class="act-index sofit-index">
+      <span>Acto 03 / 03</span>
+      <span>Movimiento</span>
+    </div>
+
+    <div class="sofit-opening">
+      <div class="sofit-opening-copy">
+        <p class="eyebrow">Trayectoria · tensión · apoyo</p>
+        <h2 id="sofit-title">Sofit</h2>
+        <p class="act-claim">Moverte también<br />es un proceso.</p>
+      </div>
+
+      <svg class="sofit-trajectory trajectory-opening" viewBox="0 0 1200 720" preserveAspectRatio="none" aria-hidden="true">
+        <path data-sofit-path d="M-80 520 C 170 440, 270 610, 445 412 S 710 90, 880 275 S 1040 552, 1280 174" />
+        <circle cx="445" cy="412" r="7" />
+        <circle cx="880" cy="275" r="7" />
+      </svg>
+
+      <div class="trajectory-marks" aria-hidden="true">
+        <span>proceso</span><i></i><span>capacidad</span><i></i><span>conocimiento</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sofit-moment sofit-moment-one" data-sofit-moment="one">
+    <div class="sofit-body-copy" data-reveal>
+      <p class="eyebrow">01 / Construir desde donde estás</p>
+      <p class="sofit-statement">No se trata de hacer más porque sí.</p>
+      <p class="sofit-explanation">
+        Se trata de entender dónde estás, qué querés trabajar y construir desde ahí.
+      </p>
+      <p class="sofit-support">Fuerza, técnica y progresión adaptadas a vos.</p>
+    </div>
+
+    <MediaSlot
+      number="01"
+      title="Movimiento principal"
+      detail=" · persona acompañada / fragmento corporal"
+      class="sofit-slot-main"
+    />
+
+    <svg class="sofit-trajectory trajectory-body" viewBox="0 0 900 640" preserveAspectRatio="none" aria-hidden="true">
+      <path data-sofit-body-path d="M-30 470 C 160 270, 260 520, 410 330 S 645 120, 930 205" />
+    </svg>
+  </div>
+
+  <div class="sofit-moment sofit-moment-two" data-sofit-moment="two">
+    <div class="sofit-companion-copy" data-reveal>
+      <p class="eyebrow">02 / Acompañamiento</p>
+      <h3>No tenés que saber hacerlo todo desde el principio.</h3>
+      <p>
+        La idea es acompañarte, ajustar el proceso y que con el tiempo entiendas cada vez
+        mejor lo que estás haciendo.
+      </p>
+    </div>
+
+    <div class="sofit-companion-media">
+      <MediaSlot
+        number="02"
+        title="Detalle corporal"
+        detail=" · apoyo / agarre / tensión"
+        class="sofit-slot-detail"
+      />
+      <MediaSlot
+        number="03"
+        title="Acompañamiento"
+        detail=" · Mora parcial / gesto de corrección"
+        class="sofit-slot-companion"
+      />
+    </div>
+
+    <p class="companion-note" aria-hidden="true"><span>vos entrenás</span><i></i><span>yo acompaño</span></p>
+  </div>
+
+  <div class="sofit-resolution" data-sofit-resolution data-magnet>
+    <div class="resolution-paths" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="resolution-copy" data-reveal>
+      <p>Que progreses.<br /><em>Y que entiendas por qué.</em></p>
+      <div class="cta-actions">
+        <a class="button button-primary" href={withBase('contacto?servicio=sofit')}>Contame qué querés trabajar <span aria-hidden="true">↗</span></a>
+        <a class="button button-ghost" href={withBase('sofit')}>Quiero saber si Sofit es para mí <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>

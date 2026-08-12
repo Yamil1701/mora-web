@@ -1,0 +1,26 @@
+---
+import { withBase } from '../utils/withBase';
+
+const intents = [
+  { label: 'Tattoo', copy: 'Tengo una idea en mente', href: 'contacto?servicio=tattoo' },
+  { label: 'Pastelería', copy: 'Quiero encargar algo', href: 'contacto?servicio=pasteleria' },
+  { label: 'Sofit', copy: 'Quiero empezar o saber si es para mí', href: 'contacto?servicio=sofit' },
+  { label: 'Todavía no sé', copy: 'Contame y vemos por dónde empezar', href: 'contacto?estado=orientacion' },
+];
+---
+
+<section class="contact-intent" aria-labelledby="contact-intent-title" data-contact-intent>
+  <p class="eyebrow">Empezar por una conversación</p>
+  <h2 id="contact-intent-title">¿Con qué te gustaría empezar?</h2>
+
+  <nav class="intent-list" aria-label="Elegir motivo de contacto">
+    {intents.map((intent, index) => (
+      <a href={withBase(intent.href)}>
+        <span class="intent-number">0{index + 1}</span>
+        <span class="intent-label">{intent.label}</span>
+        <span class="intent-copy">{intent.copy}</span>
+        <span class="intent-arrow" aria-hidden="true">→</span>
+      </a>
+    ))}
+  </nav>
+</section>
